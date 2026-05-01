@@ -1,0 +1,75 @@
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 30px;
+  box-sizing: border-box;
+
+  background: linear-gradient(135deg, #f4763b, #ecbaba);
+  color: white;
+
+  z-index: 1000;
+}
+
+/* LOGO */
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  
+}
+
+.logo a {
+  color: #fff;
+}
+
+.logo a:hover{
+  color: red;
+}
+
+/* NAV */
+nav {
+  display: flex;
+  gap: 25px; /* espace entre liens */
+  flex-wrap: wrap; /* 🔥 évite que ça coupe */
+  
+}
+
+nav a {
+  color: red;
+  text-decoration: none;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #fff;
+}
+
+
+
+/* 🔥 IMPORTANT → FIX DU DECALAGE */
+body {
+  margin: 0;
+  padding-top: 70px; /* hauteur navbar */
+}
+
+/* 🔥 FIX SCROLL SECTIONS */
+section {
+  scroll-margin-top: 80px;
+}
+
+@media (max-width: 600px) {
+  nav {
+    gap: 10px;
+    font-size: 14px;
+  }
+}
+
