@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ContactService } from '../../services/contact.service'; // 🔥 ajoute ça
 
 @Component({
   selector: 'app-contact',
@@ -16,8 +17,18 @@ export class Contact {
     message: ''
   };
 
+  constructor(private contactService: ContactService) {} // 🔥 injection
+
   send() {
-    console.log(this.form);
-    alert('Message envoyé !');
+    this.contactService.sendMessage(this.form).subscribe({
+      next: () => {
+        alert('Message envoyé 🚀');
+        this.form = { name: '', email: '', message: '' }; // reset
+      },
+      error: (err) => {
+        console.error(err);
+        alert('Erreur lors de l’envoi ❌');
+      }
+    });
   }
 }
