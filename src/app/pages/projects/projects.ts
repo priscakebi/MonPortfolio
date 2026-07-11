@@ -11,37 +11,45 @@ import { NgFor } from '@angular/common';
 export class Projects {
 
   projects = [
-  {
-    title: 'Portfolio',
-    description: 'Site personnel avec Angular et Spring Boot',
-    tech: 'Angular / Spring Boot',
-    // image: 'assets/projects/portfolio.png',
-    github: '#',
-    
-  },
-  {
-    title: 'Mastering',
-    description: 'Application pour la gestion de soutenances des étudiants',
-    tech: 'Angular/ Spring Boot / MySQL',
-    image: 'assets/projects/mast.png',
-    github: '#',
+    {
+      title: 'Portfolio',
+      description: 'Site personnel avec Angular et Spring Boot',
+      tech: 'Angular / Spring Boot',
+      // image: '',
+      github: 'https://github.com/priscakebi/MonPortfolio.git',
+
+    },
+    {
+      title: 'Mastering',
+      description: 'Application pour la gestion de soutenances des étudiants',
+      tech: 'Angular/ Spring Boot / MySQL',
+      // image: '',
+      github: 'https://github.com/fenMel/MasteringWeb.git',
+
+    },
+    {
+    title: 'BookPro',
+    description: 'Application de prise de rendez-vous',
+    tech: 'PHP/ HTML / CSS/ Bootsrap/ JavaSript/ MySQL',
+    // image: '',
+    github: 'https://github.com/priscakebi/BooKPro_web.git',
    
   },
-  {
-    title: 'Freeflow',
-    description: 'Application pour les freelances et entrepreneurs',
-    tech: 'Angular/ Spring Boot / MySQL',
-    // image: 'assets/projects/todo.png',
-    github: '#',
+{
+  title: 'MyCampusGYDE',
+    description: "Application web 'd'accompagement' administratif des étudiants étranges",
+      tech: 'Angular/ Spring Boot / MySQL',
+        // image: '',
+        github: '#',
     
   },
 
-  {
-    title: 'BookPro',
+{
+  title: 'BookPro',
     description: 'Application de prise de rendez-vous',
-    tech: 'PHP/HTML/CSS/Bootsrap',
-    // image: 'assets/projects/todo.png',
-    github: '#',
+      tech: 'PHP/HTML/CSS/Bootsrap',
+        // image: '',
+        github: 'https://github.com/priscakebi/BooKPro_web.git',
     
   }
 ];
