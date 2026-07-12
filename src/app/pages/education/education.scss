@@ -176,6 +176,40 @@
   }
 }
 
+.timeline-item:nth-child(odd) .content {
+  margin-right: auto;
+}
+
+/* Titre à gauche */
+.content h3 {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+/* Compétences à gauche */
+.competences {
+  white-space: pre-line;
+  text-align: left;
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+/* École et année à droite */
+.content .school,
+.content .year {
+  display: block;
+  text-align: right;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.competences {
+  white-space: pre-line;
+  text-align: left !important;
+  line-height: 1.7;
+  padding-left: 15px;
+}
+
 /* ===== SNAP ===== */
 .scroll {
   scroll-snap-type: x mandatory;

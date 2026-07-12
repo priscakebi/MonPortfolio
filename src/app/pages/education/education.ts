@@ -14,7 +14,7 @@ export class Education {
   formations = [
     {
   title: "Licence CDA (Concepteur Développeur d'Applications)",
-  comptences: `• Concevoir l'architecture d'une application
+  competences: `• Concevoir l'architecture d'une application
 • Développer des applications sécurisées
 • Concevoir des bases de données relationnelles
 • Développer des interfaces utilisateur ergonomiques
@@ -29,7 +29,7 @@ export class Education {
 },
     {
       title: 'BTS SIO SLAM',
-      comptences: `• Concevoir une application
+      competences: `• Concevoir une application
 • Développer une application web
 • Développer une application mobile (notions)
 • Administrer une base de données
@@ -42,6 +42,7 @@ export class Education {
     },
     {
       title: 'BTS Finance Comptabilité et Gestion et des Entreprises',
+      competences: ',',
       school: 'CERCO',
       year: '2015 - 2017'
     }

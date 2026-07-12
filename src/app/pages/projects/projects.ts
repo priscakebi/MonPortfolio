@@ -44,14 +44,6 @@ export class Projects {
     
   },
 
-{
-  title: 'BookPro',
-    description: 'Application de prise de rendez-vous',
-      tech: 'PHP/HTML/CSS/Bootsrap',
-        // image: '',
-        github: 'https://github.com/priscakebi/BooKPro_web.git',
-    
-  }
 ];
   
 }
