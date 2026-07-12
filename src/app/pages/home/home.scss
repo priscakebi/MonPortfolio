@@ -1,0 +1,83 @@
+.home {
+  height: calc(100vh - 70px); /* 🔥 enlève la navbar */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  background: linear-gradient(135deg, #f4763b, #ecbaba);
+  color: white;
+
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* contenu */
+.content {
+  max-width: 700px;
+}
+
+/* titre */
+h1 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+}
+
+/* sous titre */
+.subtitle {
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+/* boutons */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 12px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+/* bouton principal */
+.primary {
+  background: white;
+  color: #3f51b5;
+}
+
+.primary:hover {
+  background: #eee;
+}
+
+/* bouton secondaire */
+.secondary {
+  border: 2px solid white;
+  color: white;
+}
+
+.secondary:hover {
+  background: white;
+  color: #3f51b5;
+}
+
+.content {
+  animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

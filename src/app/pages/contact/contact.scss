@@ -1,0 +1,141 @@
+.contact {
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #f5f7fa, #e4ecf7);
+  text-align: center;
+
+  h2 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+  }
+
+  .subtitle {
+    color: #666;
+    margin-bottom: 50px;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 900px;
+    margin: auto;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* 🔹 INFOS */
+  .info {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: left;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+
+    h3 {
+      margin-bottom: 20px;
+    }
+
+    .item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 15px 0;
+
+      span {
+        font-size: 20px;
+      }
+    }
+
+    .socials {
+      margin-top: 20px;
+
+      a {
+        margin-right: 15px;
+        text-decoration: none;
+        font-weight: 500;
+        color: #3f51b5;
+        transition: 0.3s;
+
+        &:hover {
+          color: #00bcd4;
+        }
+      }
+    }
+  }
+
+  /* 🔹 FORM */
+  .form {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    .row {
+      display: flex;
+      gap: 10px;
+
+      @media (max-width: 500px) {
+        flex-direction: column;
+      }
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      font-size: 14px;
+      transition: 0.3s;
+
+      &:focus {
+        border-color: #3f51b5;
+        box-shadow: 0 0 0 2px rgba(63,81,181,0.1);
+        outline: none;
+      }
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: none;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #073e1e, #216816);
+      color: white;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.3s;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      }
+    }
+  }
+}
+
+.contact {
+  animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
