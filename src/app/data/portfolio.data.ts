@@ -77,9 +77,10 @@ export const PROJECTS: Project[] = [
     github: 'https://github.com/priscakebi/BooKPro_web.git',
   },
   {
-    title: 'MyCampusGYDE',
+    title: 'MyStudentGuide',
     description: "Application web d'accompagnement administratif des étudiants étrangers.",
     tags: ['Angular', 'Spring Boot', 'MySQL'],
+    github: 'https://github.com/priscakebi/MyStudentGuide.git',
   },
 ];
 
@@ -120,12 +121,6 @@ export const FORMATIONS: Formation[] = [
       "Participer à la gestion d'un projet informatique",
       'Mettre en œuvre une démarche de test',
     ],
-  },
-  {
-    title: 'BTS Comptabilité et Gestion des Entreprises',
-    school: 'CERCO',
-    year: '2015 – 2017',
-    competences: [],
   },
 ];
 
