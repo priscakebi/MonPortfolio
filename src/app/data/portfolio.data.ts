@@ -87,8 +87,20 @@ export const PROJECTS: Project[] = [
 export const FORMATIONS: Formation[] = [
   {
     title: "Master Expert en Systèmes d'Information et Sécurité",
+    school: 'ESIC',
     year: '2026 – 2028',
-    competences: [],
+    competences: [
+      "Définir et piloter la stratégie du système d'information",
+      "Concevoir l'architecture d'un SI (on-premise et cloud)",
+      'Analyser et gérer les risques de sécurité (EBIOS RM)',
+      "Mettre en place une politique de sécurité (PSSI, ISO 27001)",
+      'Assurer la conformité réglementaire (RGPD, NIS 2)',
+      'Sécuriser les réseaux, les applications et les données',
+      'Détecter et gérer les incidents de cybersécurité',
+      "Élaborer un plan de continuité d'activité (PCA / PRA)",
+      'Piloter des projets SI en méthode agile',
+      'Manager une équipe et accompagner le changement',
+    ],
   },
   {
     title: "Licence CDA — Concepteur Développeur d'Applications",
@@ -139,6 +151,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     name: 'Frameworks',
     skills: [
       { name: 'Angular', label: 'Frontend', icon: devicon('angularjs') },
+      { name: 'React', label: 'Frontend', icon: devicon('react') },
       { name: 'Spring Boot', label: 'API REST', icon: devicon('spring') },
     ],
   },
