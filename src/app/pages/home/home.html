@@ -1,13 +1,51 @@
-<section id="home" class="home">
+<section id="home" class="hero">
+  <div class="blob blob-1" aria-hidden="true"></div>
+  <div class="blob blob-2" aria-hidden="true"></div>
+  <div class="grid-bg" aria-hidden="true"></div>
 
-  <div class="content">
-    <h1>Bienvenue, moi c'est Prisca Kebi</h1>
-    <p class="subtitle">Développeuse Fullstack</p>
+  <div class="hero-inner">
+    <div class="intro">
+      <span class="badge"><span class="pulse"></span> Ouverte aux opportunités</span>
 
-    <div class="buttons">
-      <a href="#projects" class="btn primary">Voir mes projets</a>
-      <a href="#contact" class="btn secondary">Me contacter</a>
+      <h1>
+        Bonjour, moi c'est<br />
+        <span class="name">{{ profile.name }}</span>
+      </h1>
+
+      <p class="role">
+        <span class="typed">{{ typed() }}</span><span class="caret" aria-hidden="true"></span>
+      </p>
+
+      <p class="pitch">
+        Je conçois et développe des applications web modernes, de l'interface Angular jusqu'à
+        l'API Spring Boot.
+      </p>
+
+      <div class="buttons">
+        <a href="#projects" class="btn btn-light">Voir mes projets →</a>
+        <a href="#contact" class="btn btn-outline">Me contacter</a>
+      </div>
+
+      <ul class="stats">
+        @for (stat of stats; track stat.label) {
+          <li>
+            <strong>{{ stat.value }}</strong>
+            <span>{{ stat.label }}</span>
+          </li>
+        }
+      </ul>
+    </div>
+
+    <div class="code-card" aria-hidden="true">
+      <div class="dots"><i></i><i></i><i></i><span>prisca.ts</span></div>
+      <pre><code><span class="k">const</span> dev = &#123;
+  nom: <span class="s">'{{ profile.name }}'</span>,
+  stack: [<span class="s">'Angular'</span>, <span class="s">'Spring Boot'</span>],
+  bdd: [<span class="s">'MySQL'</span>, <span class="s">'PostgreSQL'</span>],
+  motivée: <span class="k">true</span>,
+&#125;;</code></pre>
     </div>
   </div>
 
+  <a href="#projects" class="scroll-hint" aria-label="Défiler vers les projets"><span></span></a>
 </section>

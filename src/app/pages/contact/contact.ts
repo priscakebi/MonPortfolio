@@ -1,52 +1,54 @@
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { ContactService } from '../../services/contact.service';
+import { Component, inject, signal } from '@angular/core';
+import { FormsModule, NgForm } from '@angular/forms';
+import { ContactMessage, ContactService } from '../../services/contact.service';
+import { PROFILE } from '../../data/portfolio.data';
+import { Reveal } from '../../shared/reveal.directive';
+
+type Status = 'idle' | 'sending' | 'success' | 'error';
 
 @Component({
   selector: 'app-contact',
-  standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, Reveal],
   templateUrl: './contact.html',
-  styleUrl: './contact.scss'
+  styleUrl: './contact.scss',
 })
 export class Contact {
+  private readonly contactService = inject(ContactService);
 
-  form = {
-    name: '',
-    email: '',
-    message: ''
-  };
+  protected readonly profile = PROFILE;
+  protected readonly maxLength = 1000;
 
-  loading = false;
+  protected form: ContactMessage = { name: '', email: '', message: '' };
+  protected readonly status = signal<Status>('idle');
+  protected readonly copied = signal(false);
 
-  constructor(private contactService: ContactService) { }
+  protected send(ngForm: NgForm): void {
+    if (ngForm.invalid) {
+      ngForm.control.markAllAsTouched();
+      return;
+    }
 
-  send() {
-    this.loading = true;
-
+    this.status.set('sending');
     this.contactService.sendMessage(this.form).subscribe({
       next: () => {
-        alert('Message envoyé 🚀');
-
-        // reset formulaire
-        this.form = {
-          name: '',
-          email: '',
-          message: ''
-        };
-
-        this.loading = false;
+        this.status.set('success');
+        ngForm.resetForm();
+        this.form = { name: '', email: '', message: '' };
       },
-
       error: (err) => {
-        console.error("ERREUR COMPLETE :", err);
-        alert('Erreur : ' + (err?.error || 'inconnue'));
-
-        if (this.loading) return;
-      }
-
-      
+        console.error("Erreur lors de l'envoi du message :", err);
+        this.status.set('error');
+      },
     });
+  }
+
+  protected async copyEmail(): Promise<void> {
+    try {
+      await navigator.clipboard.writeText(this.profile.email);
+      this.copied.set(true);
+      setTimeout(() => this.copied.set(false), 2000);
+    } catch {
+      window.location.href = `mailto:${this.profile.email}`;
+    }
   }
 }

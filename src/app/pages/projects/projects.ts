@@ -1,49 +1,29 @@
-import { Component } from '@angular/core';
-import { NgFor } from '@angular/common';
+import { Component, computed, signal } from '@angular/core';
+import { PROJECTS } from '../../data/portfolio.data';
+import { Reveal } from '../../shared/reveal.directive';
+
+const ALL = 'Tous';
 
 @Component({
   selector: 'app-projects',
-  standalone: true,
-  imports: [NgFor],
+  imports: [Reveal],
   templateUrl: './projects.html',
-  styleUrl: './projects.scss'
+  styleUrl: './projects.scss',
 })
 export class Projects {
+  protected readonly filters = [ALL, ...new Set(PROJECTS.flatMap((p) => p.tags))];
+  protected readonly activeFilter = signal(ALL);
 
-  projects = [
-    {
-      title: 'Portfolio',
-      description: 'Site personnel avec Angular et Spring Boot',
-      tech: 'Angular / Spring Boot',
-      // image: '',
-      github: 'https://github.com/priscakebi/MonPortfolio.git',
+  protected readonly projects = computed(() => {
+    const filter = this.activeFilter();
+    return filter === ALL ? PROJECTS : PROJECTS.filter((p) => p.tags.includes(filter));
+  });
 
-    },
-    {
-      title: 'Mastering',
-      description: 'Application pour la gestion de soutenances des étudiants',
-      tech: 'Angular/ Spring Boot / MySQL',
-      // image: '',
-      github: 'https://github.com/fenMel/MasteringWeb.git',
-
-    },
-    {
-    title: 'BookPro',
-    description: 'Application de prise de rendez-vous',
-    tech: 'PHP/ HTML / CSS/ Bootsrap/ JavaSript/ MySQL',
-    // image: '',
-    github: 'https://github.com/priscakebi/BooKPro_web.git',
-   
-  },
-{
-  title: 'MyCampusGYDE',
-    description: "Application web 'd'accompagement' administratif des étudiants étranges",
-      tech: 'Angular/ Spring Boot / MySQL',
-        // image: '',
-        github: '#',
-    
-  },
-
-];
-  
+  /** Effet de halo qui suit la souris sur une carte. */
+  protected trackPointer(event: PointerEvent): void {
+    const card = event.currentTarget as HTMLElement;
+    const rect = card.getBoundingClientRect();
+    card.style.setProperty('--mx', `${event.clientX - rect.left}px`);
+    card.style.setProperty('--my', `${event.clientY - rect.top}px`);
+  }
 }

@@ -1,137 +1,63 @@
-<section id="education" class="education">
+<section id="education" class="section education">
+  <header class="section-header" appReveal>
+    <span class="eyebrow">Parcours</span>
+    <h2>Formation & <span class="gradient-text">compétences</span></h2>
+    <p>Mon parcours et les technologies que j'utilise au quotidien.</p>
+  </header>
 
-  <h2>🎓 Formation & Compétences</h2>
-  <p class="subtitle">Technologies que j'utilise</p>
+  <!-- FORMATION -->
+  <ol class="timeline">
+    @for (formation of formations; track formation.title; let i = $index) {
+      <li class="step" [appReveal]="i * 120">
+        <span class="dot" aria-hidden="true"></span>
+        <article class="card">
+          <div class="meta">
+            <span class="year">{{ formation.year }}</span>
+            @if (formation.school) {
+              <span class="school">{{ formation.school }}</span>
+            }
+          </div>
+          <h3>{{ formation.title }}</h3>
 
-  <!-- 🎓 FORMATION -->
-  <div class="timeline">
-    <div class="timeline-item" *ngFor="let f of formations">
-      <div class="dot"></div>
-      <div class="content">
-        <h3>{{ f.title }}</h3>
+          @if (formation.competences.length) {
+            <details [open]="i === 0">
+              <summary>{{ formation.competences.length }} compétences acquises</summary>
+              <ul>
+                @for (competence of formation.competences; track competence) {
+                  <li>{{ competence }}</li>
+                }
+              </ul>
+            </details>
+          }
+        </article>
+      </li>
+    }
+  </ol>
 
-        <p class="competences">{{ f.competences }}</p>
-
-        <p class="school">{{ f.school }}</p>
-        <span class="year">{{ f.year }}</span>
-      </div>
+  <!-- COMPÉTENCES -->
+  <div class="skills" appReveal>
+    <div class="tabs" role="tablist" aria-label="Catégories de compétences">
+      @for (category of categories; track category.name) {
+        <button
+          type="button"
+          role="tab"
+          [class.active]="activeCategory() === category.name"
+          [attr.aria-selected]="activeCategory() === category.name"
+          (click)="activeCategory.set(category.name)"
+        >
+          {{ category.name }}
+        </button>
+      }
     </div>
-  </div>
 
+    <ul class="skill-grid" role="tabpanel">
+      @for (skill of skills(); track skill.name; let i = $index) {
+        <li class="skill" [style.animation-delay.ms]="i * 60">
+          <img [src]="skill.icon" alt="" [class.mono]="skill.mono" width="56" height="56" loading="lazy" />
+          <strong>{{ skill.name }}</strong>
+          <span>{{ skill.label }}</span>
+        </li>
+      }
+    </ul>
+  </div>
 </section>
-
-
-<div class="skills">
-
-  <!-- LANGAGES -->
-  <div class="category">
-    <h3>💻 Langages</h3>
-
-    <div class="scroll">
-
-      <div class="item">
-        <i class="devicon-java-plain colored"></i>
-        <p>Java<br><span>Backend</span></p>
-      </div>
-
-      <div class="item">
-        <i class="devicon-typescript-plain colored"></i>
-        <p>TypeScript<br><span>Angular</span></p>
-      </div>
-
-      <div class="item">
-        <i class="devicon-javascript-plain colored"></i>
-        <p>JavaScript<br><span>Frontend</span></p>
-      </div>
-
-      <div class="item">
-        <i class="devicon-html5-plain colored"></i>
-        <p>HTML<br><span>Structure</span></p>
-      </div>
-
-      <div class="item">
-        <i class="devicon-css3-plain colored"></i>
-        <p>SCSS<br><span>Design</span></p>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- FRAMEWORKS -->
-  <div class="category">
-    <h3>⚙️ Frameworks</h3>
-
-    <div class="scroll">
-
-      <div class="item">
-        <i class="devicon-angularjs-plain colored"></i>
-        <p>Angular<br><span>Frontend</span></p>
-      </div>
-
-      <div class="item">
-        <i class="devicon-spring-plain colored"></i>
-        <p>Spring Boot<br><span>API REST</span></p>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- OUTILS -->
-  <div class="category">
-    <h3>🛠️ Outils</h3>
-
-    <div class="scroll">
-
-      <div class="item">
-        <i class="devicon-github-original colored"></i>
-        <p>GitHub<br><span>Versionning</span></p>
-      </div>
-
-      <div class="item">
-        <i class="devicon-vscode-plain colored"></i>
-        <p>VS Code<br><span>Éditeur</span></p>
-      </div>
-
-      <div class="item">
-        <i class="devicon-intellij-plain colored"></i>
-        <p>IntelliJ<br><span>Java</span></p>
-      </div>
-
-      <div class="item">
-        <i class="devicon-postman-plain colored"></i>
-        <p>Postman<br><span>API</span></p>
-      </div>
-
-      <div class="item">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swagger/swagger-original.svg">
-        <p>Swagger<br><span>Docs API</span></p>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- DATABASE -->
-  <div class="category">
-    <h3>🗄️ Base de données</h3>
-
-    <div class="scroll">
-
-      <div class="item">
-        <i class="devicon-mysql-plain colored"></i>
-        <p>MySQL<br><span>SQL</span></p>
-      </div>
-
-      <div class="item">
-        <i class="devicon-postgresql-plain colored"></i>
-        <p>PostgreSQL<br><span>Avancé</span></p>
-      </div>
-
-      <div class="item">
-        <i class="devicon-mongodb-plain colored"></i>
-        <p>MongoDB<br><span>NoSQL</span></p>
-      </div>
-
-    </div>
-  </div>
-
-</div>
